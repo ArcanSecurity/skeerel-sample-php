@@ -1,5 +1,5 @@
 {
     "require": {
-        "arcansecurity/skeerel-php": "2.1.0"
+        "arcansecurity/skeerel-php": "2.5.5"
     }
 }

@@ -13,7 +13,7 @@ ini_set('display_errors', 'On');
 
 session_start();
 
-require_once 'vendor/autoload.php';
+require_once '../vendor/autoload.php';
 
 $zip = htmlentities($_GET['zip_code']);
 $city = htmlentities($_GET['city']);
@@ -26,7 +26,7 @@ $dateThreeDays = "le " . date('d M', strtotime(date('Y-m-d') . ' + 3 days'));
 // A standard delivery mode
 $deliveryMethodStandard = new DeliveryMethod();
 $deliveryMethodStandard->setId("standard");
-$deliveryMethodStandard->setType(Type::HOME);
+$deliveryMethodStandard->setType(Type::HOME());
 $deliveryMethodStandard->setPrimary(true);
 $deliveryMethodStandard->setName("Livraison Standard");
 $deliveryMethodStandard->setDeliveryTextContent("sous 72 heures");
@@ -37,7 +37,7 @@ $deliveryMethodStandard->setPrice(499);
 // But also a pick up mode
 $deliveryMethodRelay = new DeliveryMethod();
 $deliveryMethodRelay->setId("my_relay");
-$deliveryMethodRelay->setType(Type::RELAY);
+$deliveryMethodRelay->setType(Type::RELAY());
 $deliveryMethodRelay->setName("Point relais");
 $deliveryMethodRelay->setDeliveryTextContent($dateTwoDays);
 $deliveryMethodRelay->setPrice(299);
@@ -51,9 +51,9 @@ $pickUpPoint1->setZipCode($zip);
 $pickUpPoint1->setCity($city);
 $pickUpPoint1->setCountry($country);
 $pickUpPoint1->setDeliveryTextContent("demain");
-$pickUpPoint1->setDeliveryTextColor(Color::GREEN);
+$pickUpPoint1->setDeliveryTextColor(Color::GREEN());
 $pickUpPoint1->setPrice(399);
-$pickUpPoint1->setPriceTextColor(Color::RED);
+$pickUpPoint1->setPriceTextColor(Color::RED());
 
 $pickUpPoint2 = new PickUpPoint();
 $pickUpPoint2->setId("2");
@@ -84,7 +84,7 @@ $deliveryMethodRelay->setPickUpPoints($pickUpPointsRelay);
 // And why not getting the order directly in the store
 $deliveryMethodCollect = new DeliveryMethod();
 $deliveryMethodCollect->setId("store_collect");
-$deliveryMethodCollect->setType(Type::COLLECT);
+$deliveryMethodCollect->setType(Type::COLLECT());
 $deliveryMethodCollect->setName("Retrait en magasin");
 $deliveryMethodCollect->setDeliveryTextContent("dans 2 heures");
 $deliveryMethodCollect->setPrice(0);
