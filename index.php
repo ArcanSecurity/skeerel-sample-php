@@ -24,7 +24,7 @@ Skeerel::generateSessionStateParameter();
 	<body>
         <div id="skeerel-button-holder"></div>
 
-        <script type="text/javascript" src="https://api.skeerel.com/assets/v2/javascript/api.min.js"></script>
+        <script type="text/javascript" src="https://cdn.skeerel.com/assets/v2/javascript/api.min.js"></script>
         <script type="text/javascript">
             SkeerelCheckout.insertDefaultButton(document.getElementById("skeerel-button-holder"), "skeerel-pay-button");
 
@@ -44,6 +44,7 @@ Skeerel::generateSessionStateParameter();
 
                 // Create and show the iframe
                 skeerelCheckout.start();
+
             };
         </script>
     </body>
